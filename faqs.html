@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frequently Asked Questions | Sakthi Dental Clinic Hosur</title>
-  <meta name="description" content="Find answers to common questions about dental visits, pediatric care, root canals, braces, aligners, sterilization, and timings at Sakthi Dental Clinic in Hosur.">
+  <meta name="description" content="Find answers to all 14 common dental questions from our patients: tooth pain, scaling safety, RCT, braces, wisdom teeth, dental implants, oral hygiene, and sensitivity.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,21 +15,21 @@
     <div class="container top-bar-inner">
       <div class="top-bar-left">
         <span class="top-bar-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           B2/8, SBM Layout, Anthivadi, Hosur, Tamil Nadu 635109
         </span>
         <span class="top-bar-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           Open 7 Days: 9:00 AM – 7:00 PM
         </span>
       </div>
       <div class="top-bar-right">
         <a href="tel:+919862890897" class="top-bar-item top-bar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           +91 9862890897
         </a>
         <a href="mailto:info@sakthidentalclinic.in" class="top-bar-item top-bar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           info@sakthidentalclinic.in
         </a>
       </div>
@@ -52,21 +52,26 @@
         </div>
       </a>
 
+      <!-- Desktop & Mobile Navigation Links -->
       <nav aria-label="Main Navigation">
-        <ul class="nav-menu">
+        <ul id="main-nav-menu" class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
           <li><a href="treatments.html" class="nav-link">Treatments</a></li>
           <li><a href="faqs.html" class="nav-link">FAQs</a></li>
           <li><a href="contact.html" class="nav-link">Contact Us</a></li>
           <li><a href="privacy-policy.html" class="nav-link">Privacy Policy</a></li>
+          <li class="mobile-menu-cta">
+            <a href="contact.html#appointment" class="btn btn-primary">Fix an Appointment</a>
+          </li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="contact.html#appointment" class="btn btn-primary btn-sm">Fix an Appointment</a>
-        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <a href="contact.html#appointment" class="btn btn-primary btn-sm header-cta-desktop">Fix an Appointment</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav-menu">
+          <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
     </div>
@@ -79,178 +84,193 @@
         <span class="badge-tag badge-lavender">Patient Guidance</span>
         <h1 class="section-title">Frequently Asked Questions</h1>
         <p class="section-subtitle" style="max-width: 680px; margin: 0 auto;">
-          Find clear answers to everyday questions about our dental services, clinic timings in Hosur, pediatric visits, and patient comfort.
+          Find clear, expert answers to everyday oral health questions directly from Dr. Anupriya and the dental care team.
         </p>
       </div>
     </section>
 
-    <!-- FAQ Accordion Section -->
+    <!-- FAQ Accordion Section (All 14 Questions) -->
     <section class="section">
       <div class="container faq-container">
 
-        <!-- Category 1: Appointments & Clinic Visits -->
-        <h2 class="faq-category-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Appointments &amp; Clinic Visits
-        </h2>
-
-        <!-- FAQ 1 -->
+        <!-- 1. Tooth Pain Medication -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-1" id="faq-q-1">
-            <span>What are your clinic timings, and are you open on Sundays?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>1. Can medication completely relieve tooth pain?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
             <p>
-              Yes! Sakthi Dental Clinic is open <strong>7 days a week from 9:00 AM to 7:00 PM</strong>, including Sundays. We understand that weekday school and office schedules can be hectic, so we offer full weekend availability to accommodate working families.
+              Not entirely. While medications may offer short-term relief, long-lasting relief requires identifying and treating the root cause of the pain through professional dental care.
             </p>
           </div>
         </div>
 
-        <!-- FAQ 2 -->
+        <!-- 2. Teeth Scaling Effects -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
-            <span>Do I need to fix an appointment in advance, or do you accept walk-ins?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>2. Does teeth scaling cause enamel damage, sensitivity, or gaps between teeth?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
             <p>
-              While we accommodate emergency walk-in patients whenever possible, we strongly recommend booking an appointment in advance. This ensures minimum waiting time and gives Dr. Anupriya dedicated, unhurried time for your consultation.
+              No. Scaling safely removes plaque and tartar from teeth and below the gum line. It doesn’t damage enamel or create gaps. Some temporary sensitivity may occur, but it usually subsides as gums heal and reattach to the teeth.
             </p>
           </div>
         </div>
 
-        <!-- FAQ 3 -->
+        <!-- 3. Fluorosis Stains -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
-            <span>Where is the clinic located in Hosur?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>3. Can fluorosis stains be removed through scaling?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
             <p>
-              Our clinic address is <strong>B2/8, SBM Layout, Anthivadi, Hosur, Tamil Nadu 635109</strong>. The location is easily accessible from all major neighborhoods in Hosur with convenient roadside parking.
+              Scaling can remove surface (extrinsic) stains but not fluorosis, which is an internal (intrinsic) stain. Fluorosis may require treatments like bleaching, veneers, or crowns for cosmetic improvement.
             </p>
           </div>
         </div>
 
-        <!-- Category 2: Pediatric Care & Kids Dentistry -->
-        <h2 class="faq-category-title" style="margin-top: 3rem;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-          Pediatric Dental Care for Children
-        </h2>
-
-        <!-- FAQ 4 -->
+        <!-- 4. Fillings for Painful Teeth -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
-            <span>At what age should my child have their first dental visit?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>4. Can painful teeth be treated with fillings?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
             <p>
-              Dental health guidelines recommend that a child visit a dentist by their first birthday or when their very first primary tooth appears. Early visits allow us to verify healthy gum development, discuss bottle-feeding precautions, and prevent early childhood cavities.
+              Not always. If the cavity has reached the pulp, the innermost layer of the tooth, simple filling won’t help. In such cases, root canal treatment or tooth extraction might be necessary. Fillings are effective only when the damage is limited to the outer layers (enamel and dentin).
             </p>
           </div>
         </div>
 
-        <!-- FAQ 5 -->
+        <!-- 5. Cap or Crown after RCT -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
-            <span>How does Dr. Anupriya handle children who are anxious or afraid?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>5. Is placing a cap or crown necessary after root canal treatment (RCT)?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-q-5">
             <p>
-              We use a friendly, non-threatening approach called "Tell-Show-Do". We introduce our dental tools gently, explaining how they work in child-friendly words. We never force procedures, taking small comforting steps to make the child feel proud, safe, and happy.
+              Yes. A crown is recommended after RCT to protect the treated tooth, which may be weaker due to decay. It prevents fractures and adds durability, especially during chewing.
             </p>
           </div>
         </div>
 
-        <!-- FAQ 6 -->
+        <!-- 6. Milk Teeth RCT -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
-            <span>What are pit and fissure sealants, and why are they recommended for kids?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>6. Can milk teeth need root canal treatment (RCT)?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-q-6">
             <p>
-              Pit and fissure sealants are thin, protective composite coatings applied to the deep chewing grooves of permanent molars. They shield tooth surfaces from food particles and bacteria, dramatically reducing the risk of childhood tooth decay.
+              Yes. If a milk tooth has a deep cavity and is likely to remain in the mouth for some time, an RCT can preserve it and prevent infection or early loss.
             </p>
           </div>
         </div>
 
-        <!-- Category 3: Common Dental Treatments & Comfort -->
-        <h2 class="faq-category-title" style="margin-top: 3rem;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;"><path d="M12 2C8.5 2 6 4.5 6 8c0 3 1.5 6 2 9 .5 3 2 4 4 4s3.5-1 4-4c.5-3 2-6 2-9 0-3.5-2.5-6-6-6z"/></svg>
-          Treatments &amp; Pain Management
-        </h2>
-
-        <!-- FAQ 7 -->
+        <!-- 7. Good Oral Hygiene -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-7" id="faq-q-7">
-            <span>Is Root Canal Therapy painful?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>7. How can I maintain good oral hygiene?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-7" role="region" aria-labelledby="faq-q-7">
             <p>
-              Contrary to popular fear, modern root canal therapy does not cause pain—it relieves pain. With advanced local anesthetics and gentle cleaning techniques, the procedure feels very similar to receiving a standard tooth filling, immediately eliminating intense toothache caused by infected nerve pulp.
+              Brush your teeth twice daily with proper technique, rinse after meals, floss regularly, and schedule routine check-ups with your dentist to maintain healthy teeth and gums.
             </p>
           </div>
         </div>
 
-        <!-- FAQ 8 -->
+        <!-- 8. Best Age for Braces -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-8" id="faq-q-8">
-            <span>Does professional teeth scaling weaken or thin the enamel?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>8. What is the best age to get braces?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-8" role="region" aria-labelledby="faq-q-8">
             <p>
-              No, this is a common myth. Professional ultrasonic scaling vibrates gently to dislodge calcified tartar deposits without eroding your tooth enamel. In fact, removing tartar is essential to prevent chronic gum infection, receding gums, and loose teeth.
+              Braces are most effective between ages 12 and 14, when the jaw and teeth are still developing. However, some cases may benefit from earlier intervention depending on the condition.
             </p>
           </div>
         </div>
 
-        <!-- FAQ 9 -->
+        <!-- 9. Wisdom Teeth Removal -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-9" id="faq-q-9">
-            <span>How do Clear Aligners differ from Orthodontic Braces?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>9. Do all wisdom teeth need to be removed?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-9" role="region" aria-labelledby="faq-q-9">
             <p>
-              Both systems effectively straighten misaligned teeth. Traditional braces use fixed metal or ceramic brackets and wires, while clear aligners are removable, transparent plastic trays customized for your teeth. Aligners are virtually invisible and make brushing and eating easier, while braces may be better suited for complex orthodontic movements.
+              No. Wisdom teeth only require removal if they are impacted, infected, or causing pain due to crowding or damage to adjacent teeth.
             </p>
           </div>
         </div>
 
-        <!-- Category 4: Hygiene & Safety Protocols -->
-        <h2 class="faq-category-title" style="margin-top: 3rem;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          Sterilization &amp; Safety Protocols
-        </h2>
-
-        <!-- FAQ 10 -->
+        <!-- 10. Replacing Missing Teeth -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-10" id="faq-q-10">
-            <span>How do you maintain hygiene and sterilization between patients?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>10. Is it important to replace missing teeth after extraction?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-10" role="region" aria-labelledby="faq-q-10">
             <p>
-              We implement a strict 4-step infection control workflow: enzymatic pre-cleaning, ultrasonic debris elimination, sealed pouching with sterility indicators, and medical autoclave sterilization. All operatory surfaces and dental chair handles are disinfected with hospital-grade surface wipes between every patient.
+              Yes. Replacing extracted teeth helps maintain proper bite alignment and prevents adjacent teeth from shifting, which can affect chewing and overall oral function.
             </p>
           </div>
         </div>
 
-        <!-- FAQ 11 -->
+        <!-- 11. Dental Implants Benefits -->
         <div class="faq-item">
           <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-11" id="faq-q-11">
-            <span>How can I reach the clinic quickly if I have sudden tooth pain?</span>
-            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <span>11. What are the benefits of dental implants?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer" id="faq-ans-11" role="region" aria-labelledby="faq-q-11">
             <p>
-              For urgent tooth pain or dental concerns, you can call us immediately at <strong>+91 9862890897</strong> or <strong>+91 9363298118</strong>. You can also send a direct WhatsApp message for quick scheduling assistance between 9:00 AM and 7:00 PM.
+              Dental implants restore both the appearance and functionality of missing teeth. They provide a stable, natural-looking solution that can improve confidence and overall quality of life.
+            </p>
+          </div>
+        </div>
+
+        <!-- 12. Toothbrush and Toothpaste -->
+        <div class="faq-item">
+          <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-12" id="faq-q-12">
+            <span>12. Which type of toothbrush and toothpaste should I use?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer" id="faq-ans-12" role="region" aria-labelledby="faq-q-12">
+            <p>
+              Use a soft or medium-bristled toothbrush with a small head for better reach. Choose a non-abrasive fluoride toothpaste and replace your toothbrush every three months for optimal hygiene.
+            </p>
+          </div>
+        </div>
+
+        <!-- 13. Tooth Sensitivity -->
+        <div class="faq-item">
+          <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-13" id="faq-q-13">
+            <span>13. What causes tooth sensitivity?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer" id="faq-ans-13" role="region" aria-labelledby="faq-q-13">
+            <p>
+              Tooth sensitivity can result from enamel wear (due to attrition or abrasion), tooth decay, exposed tooth roots, or hairline cracks in the teeth.
+            </p>
+          </div>
+        </div>
+
+        <!-- 14. Frequency of Dentist Visits -->
+        <div class="faq-item">
+          <button class="faq-question-btn" aria-expanded="false" aria-controls="faq-ans-14" id="faq-q-14">
+            <span>14. How often should I see a dentist?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer" id="faq-ans-14" role="region" aria-labelledby="faq-q-14">
+            <p>
+              Visiting your dentist every six months is recommended for routine check-ups, professional cleaning, and preventive care to maintain good oral health.
             </p>
           </div>
         </div>
@@ -302,9 +322,9 @@
           <ul class="footer-links-list">
             <li><a href="index.html" class="footer-link">Home</a></li>
             <li><a href="about.html" class="footer-link">About Us</a></li>
-            <li><a href="treatments.html" class="footer-link">Dental Treatments</a></li>
-            <li><a href="faqs.html" class="footer-link">Frequently Asked Questions</a></li>
-            <li><a href="contact.html" class="footer-link">Contact &amp; Directions</a></li>
+            <li><a href="treatments.html" class="footer-link">Treatments</a></li>
+            <li><a href="faqs.html" class="footer-link">FAQs</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
             <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
           </ul>
         </div>
@@ -313,16 +333,16 @@
           <h4>Treatments</h4>
           <ul class="footer-links-list">
             <li><a href="treatments.html#cleaning" class="footer-link">Teeth Cleaning &amp; Scaling</a></li>
-            <li><a href="treatments.html#pediatric" class="footer-link">Pediatric Dentistry</a></li>
-            <li><a href="treatments.html#orthodontics" class="footer-link">Braces &amp; Clear Aligners</a></li>
-            <li><a href="treatments.html#root-canal" class="footer-link">Root Canal Therapy</a></li>
+            <li><a href="treatments.html#filling" class="footer-link">Tooth Filling</a></li>
+            <li><a href="treatments.html#extraction" class="footer-link">Tooth Extraction</a></li>
+            <li><a href="treatments.html#dentures" class="footer-link">Artificial Complete Denture</a></li>
             <li><a href="treatments.html#implants" class="footer-link">Dental Implants</a></li>
-            <li><a href="treatments.html#whitening" class="footer-link">Teeth Whitening</a></li>
+            <li><a href="treatments.html#braces" class="footer-link">Orthodontic Braces</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Contact &amp; Timings</h4>
+          <h4>Reach us</h4>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             <span>B2/8, SBM Layout, Anthivadi, Hosur, Tamil Nadu 635109, India</span>
