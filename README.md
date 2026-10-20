@@ -1,6 +1,6 @@
 # Sakthi Dental Clinic Website
 
-A modern, premium, fully responsive, and accessible healthcare website for **Sakthi Dental Clinic**, located in Hosur, Tamil Nadu, India.
+A modern, premium, fully responsive, and accessible healthcare website for **Sakthi Dental Clinic**, located in Hosur, Tamil Nadu, India. Built for the ShadowFox Frontend Development internship project.
 
 ---
 
@@ -20,14 +20,14 @@ A modern, premium, fully responsive, and accessible healthcare website for **Sak
 
 ```
 sakthi-dental-clinic/
-├── index.html            # Home page (Hero, Welcome Banner, Why Choose Us, 6 Featured Treatments, Facilities, Testimonials, CTA, Contact snippet)
-├── about.html            # About Us page (Dr. Anupriya bio, Clinic philosophy, 4-step sterilization protocol)
-├── treatments.html       # Treatments page (All 12 treatments detailed with procedures, candidates, and care)
-├── faqs.html             # FAQs page (Categorized accessible accordion for appointments, pediatric care, safety)
-├── contact.html          # Contact Us page (Address, phone, email, working hours, interactive appointment form, Google Maps)
-├── privacy-policy.html   # Privacy Policy page (Healthcare patient data privacy and confidentiality)
-├── style.css             # Unified CSS design system (tokens, components, responsive layout, accessibility)
-├── script.js             # Shared JavaScript (responsive navigation, accessible accordion, client validation, WhatsApp dispatch)
+├── index.html            # Home page (Hero, Welcome Banner, 4 Value Pillars, 6 Featured Treatments, 5 Facilities, 3 Testimonials, Appointment CTA, Contact & Timings)
+├── about.html            # About Us page (Dr. Anupriya founder biography, Vision & Mission, 9 specialist doctor profiles)
+├── treatments.html       # Treatments page (All 15 specialized treatments with clear descriptions and procedural overviews)
+├── faqs.html             # FAQs page (14 client Q&As in an accessible, keyboard-friendly accordion)
+├── contact.html          # Contact Us page ("We would love to hear from you" form, phone/email, address, interactive map, WhatsApp routing)
+├── privacy-policy.html   # Privacy Policy page (9 client-mandated healthcare privacy, consent, and confidentiality sections)
+├── style.css             # Unified CSS design system (tokens, components, responsive layout down to 320px, accessibility, reduced motion)
+├── script.js             # Shared JavaScript (responsive navigation drawer, accessible accordion, client form validation, WhatsApp dispatch)
 └── README.md             # Project documentation & deployment guide
 ```
 
@@ -35,9 +35,9 @@ sakthi-dental-clinic/
 
 ## 🎨 Design System & Palette
 
-- **Base Background:** Pure White (`#FFFFFF`) with subtle soft grey-blue cards (`#F8FAFC`)
-- **Soft Lavender:** Primary accent (`#7C3AED` / `#EDE9FE`) — represents gentle, calming clinical care
-- **Pastel Pink:** Accent (`#EC4899` / `#FCE7F3`) — highlights women's and pediatric dental warmth
+- **Base Background:** Pure White (`#FFFFFF`) with subtle soft lavender-grey cards (`#F8FAFC`)
+- **Soft Lavender:** Primary accent (`#7C3AED` / `#EDE9FE` / `#F5F3FF`) — gentle, calming clinical care
+- **Pastel Pink:** Accent (`#EC4899` / `#FCE7F3` / `#FDF2F8`) — highlights women's and pediatric dental warmth
 - **Clinical Blue:** Trust accent (`#2563EB` / `#EFF6FF`) — reflects hygiene, precision, and healthcare trust
 - **Typography:** Google Font `Plus Jakarta Sans` with fluid responsive scaling
 
@@ -62,29 +62,34 @@ Because this project is built entirely with clean vanilla **HTML5**, **CSS3**, a
 ## 🚀 Checklist for Deploying to Netlify
 
 ### Step 1: Prepare the Folder
-- Ensure all 6 HTML files, `style.css`, and `script.js` are in the root directory (as organized).
-- Relative paths (`href="about.html"`, `src="script.js"`) are already configured.
+- Ensure all 6 HTML files, `style.css`, and `script.js` are in the root directory.
+- All paths are relative (`href="about.html"`, `src="script.js"`).
 
 ### Step 2: Deploy via Netlify Drop (Fastest - 1 Minute)
 1. Go to [app.netlify.com/drop](https://app.netlify.com/drop) and log in.
 2. Drag and drop the `sakthi-dental-clinic` folder directly into the Netlify Drop area.
-3. Netlify will immediately upload and provide a live URL (e.g. `https://sakthi-dental-clinic.netlify.app`).
+3. Netlify will immediately upload and provide a live URL (e.g. `https://sakthi-dental-clinic-1.netlify.app`).
 
 ### Step 3: Deploy via Git Repository (Recommended for Continuous Updates)
 1. Initialize a git repository:
    ```bash
    git init
    git add .
-   git commit -m "Initial commit of Sakthi Dental Clinic website"
+   git commit -m "Complete Sakthi Dental Clinic website"
    ```
-2. Push to GitHub, GitLab, or Bitbucket.
+2. Push to GitHub:
+   ```bash
+   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+   git branch -M main
+   git push -u origin main
+   ```
 3. In Netlify, click **"Add new site" > "Import an existing project"**, and choose your repository.
 4. Leave the build command empty and set publish directory to `.` (root).
 
 ### Step 4: Configure Netlify Forms (Optional Backend Delivery)
-- The appointment form already has `data-netlify="true"` and `name="appointment-inquiry"`.
+- The appointment form on `contact.html` is configured with `data-netlify="true"` and `name="appointment-inquiry"`.
 - Netlify will automatically detect the form.
-- In **Site Settings > Forms**, add notification email `info@sakthidentalclinic.in` to receive incoming bookings directly to your inbox!
+- In **Site Settings > Forms**, add notification email `info@sakthidentalclinic.in` to receive incoming inquiries directly to your inbox.
 
 ### Step 5: Custom Domain & Free SSL
 1. In Netlify, go to **Domain management > Add custom domain**.
