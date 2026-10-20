@@ -1,51 +1,97 @@
 /**
  * Sakthi Dental Clinic - Shared Vanilla JavaScript (script.js)
- * Clean, accessible, zero-dependency interactivity:
- * - Responsive mobile navigation with ARIA support
- * - Accessible FAQ accordion
- * - Strict client-side form validation (Email, Phone, Name)
- * - Transparent appointment dispatch (WhatsApp / Direct Call / Mailto)
- * - Header shadow on scroll & scroll-to-top button
+ * High-quality, accessible, zero-dependency interactivity:
+ * - Robust mobile navigation with full ARIA support, Escape key, and resize observer
+ * - Accessible FAQ accordion supporting all 14 client questions
+ * - Accessible form validation (Name, Email, Phone, Message) with transparent submission
+ * - Header shadow on scroll & smooth scroll-to-top button
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // --- 1. Responsive Navigation Menu & Header Scroll ---
+  // =========================================================================
+  // 1. MOBILE HEADER & NAVIGATION (CRITICAL ACCESSIBILITY & RESPONSIVE FIX)
+  // =========================================================================
   const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
+  const navMenu = document.getElementById('main-nav-menu') || document.querySelector('.nav-menu');
   const siteHeader = document.querySelector('.site-header');
 
-  if (mobileNavToggle && navMenu) {
-    mobileNavToggle.addEventListener('click', () => {
-      const isExpanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
-      mobileNavToggle.setAttribute('aria-expanded', String(!isExpanded));
-      navMenu.classList.toggle('open');
-      document.body.style.overflow = !isExpanded ? 'hidden' : '';
-    });
+  function openMobileMenu() {
+    if (!mobileNavToggle || !navMenu) return;
+    mobileNavToggle.setAttribute('aria-expanded', 'true');
+    mobileNavToggle.classList.add('is-active');
+    navMenu.classList.add('open');
+    document.body.classList.add('nav-menu-open');
+    document.body.style.overflow = 'hidden';
+  }
 
-    // Close mobile menu on Escape key press
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-        navMenu.classList.remove('open');
-        mobileNavToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        mobileNavToggle.focus();
+  function closeMobileMenu(returnFocus = false) {
+    if (!mobileNavToggle || !navMenu) return;
+    mobileNavToggle.setAttribute('aria-expanded', 'false');
+    mobileNavToggle.classList.remove('is-active');
+    navMenu.classList.remove('open');
+    document.body.classList.remove('nav-menu-open');
+    document.body.style.overflow = '';
+    if (returnFocus) {
+      mobileNavToggle.focus();
+    }
+  }
+
+  if (mobileNavToggle && navMenu) {
+    // Ensure aria attributes are set
+    mobileNavToggle.setAttribute('aria-controls', navMenu.id || 'main-nav-menu');
+    if (!mobileNavToggle.hasAttribute('aria-expanded')) {
+      mobileNavToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    mobileNavToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
       }
     });
 
-    // Close when clicking a nav link
-    const navLinks = navMenu.querySelectorAll('.nav-link');
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        closeMobileMenu(true);
+      }
+    });
+
+    // Close when clicking any link inside the navigation menu
+    const navLinks = navMenu.querySelectorAll('a');
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         if (navMenu.classList.contains('open')) {
-          navMenu.classList.remove('open');
-          mobileNavToggle.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+          closeMobileMenu();
         }
       });
     });
+
+    // Close if clicking outside the open menu
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('open')) {
+        if (!navMenu.contains(e.target) && !mobileNavToggle.contains(e.target)) {
+          closeMobileMenu();
+        }
+      }
+    });
+
+    // Reset mobile menu if resized to desktop width (> 768px)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navMenu.classList.contains('open')) {
+        closeMobileMenu();
+      }
+    });
   }
 
-  // Header shadow on scroll
+  // =========================================================================
+  // 2. HEADER SCROLL & SCROLL-TO-TOP BUTTON
+  // =========================================================================
+  const scrollToTopBtn = document.querySelector('.float-btn-top');
+
   window.addEventListener('scroll', () => {
     if (siteHeader) {
       if (window.scrollY > 20) {
@@ -55,8 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Scroll to Top Button Visibility
-    const scrollToTopBtn = document.querySelector('.float-btn-top');
     if (scrollToTopBtn) {
       if (window.scrollY > 350) {
         scrollToTopBtn.classList.add('visible');
@@ -66,8 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Scroll to Top action
-  const scrollToTopBtn = document.querySelector('.float-btn-top');
   if (scrollToTopBtn) {
     scrollToTopBtn.addEventListener('click', () => {
       window.scrollTo({
@@ -77,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 2. Active Page Link Highlighting ---
+  // Active navigation link highlighting based on current page URL
   const currentPath = window.location.pathname;
   const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
   const allNavLinks = document.querySelectorAll('.nav-link');
@@ -93,7 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- 3. Accessible FAQ Accordion ---
+  // =========================================================================
+  // 3. ACCESSIBLE FAQ ACCORDION (14 QUESTIONS)
+  // =========================================================================
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach((item) => {
     const questionBtn = item.querySelector('.faq-question-btn');
@@ -103,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
       questionBtn.addEventListener('click', () => {
         const isOpen = item.classList.contains('active');
 
-        // Optional: close other open accordions within the same container for clean reading
+        // Close other accordions in the same container for clean reading
         const parentContainer = item.closest('.faq-container');
         if (parentContainer) {
           parentContainer.querySelectorAll('.faq-item.active').forEach((activeItem) => {
@@ -130,7 +174,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- 4. Robust Form Validation & Transparent Appointment Workflow ---
+  // =========================================================================
+  // 4. CONTACT & APPOINTMENT FORM VALIDATION
+  // =========================================================================
   const appointmentForm = document.getElementById('appointment-form');
   const feedbackModal = document.getElementById('form-feedback-modal');
 
@@ -138,18 +184,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameInput = document.getElementById('fullName');
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
-    const treatmentInput = document.getElementById('treatment');
-    const dateInput = document.getElementById('preferredDate');
-    const slotInput = document.getElementById('preferredSlot');
     const messageInput = document.getElementById('message');
 
-    // Validation Rules
+    // Robust field validators
     const validators = {
       fullName: (value) => {
         const trimmed = value.trim();
-        if (!trimmed) return 'Please enter your full name.';
-        if (trimmed.length < 2) return 'Name must be at least 2 characters.';
-        if (!/^[a-zA-Z\s.'-]+$/.test(trimmed)) return 'Name should only contain letters and standard punctuation.';
+        if (!trimmed) return 'Please enter your name.';
+        if (trimmed.length < 2) return 'Name must be at least 2 characters long.';
+        if (!/^[a-zA-Z\s.'-]+$/.test(trimmed)) return 'Name should only contain letters and standard characters.';
         return '';
       },
       email: (value) => {
@@ -161,10 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       phone: (value) => {
         const trimmed = value.trim();
-        if (!trimmed) return 'Please enter your contact phone number.';
-        // Clean characters for checking
+        if (!trimmed) return 'Please enter your phone number.';
         const cleaned = trimmed.replace(/[\s\-()]/g, '');
-        // Validate Indian 10-digit mobile or international format (10-14 digits)
         const isIndianFormat = /^[6-9]\d{9}$/.test(cleaned);
         const isInternationalFormat = /^\+?[0-9]{10,14}$/.test(cleaned);
         if (!isIndianFormat && !isInternationalFormat) {
@@ -174,8 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    // Helper: Show field error
     function setFieldError(input, errorMsg) {
+      if (!input) return;
       const formGroup = input.closest('.form-group');
       if (!formGroup) return;
       const errorDisplay = formGroup.querySelector('.error-message');
@@ -199,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Live validation on blur
+    // Inline blur & input validation
     [nameInput, emailInput, phoneInput].forEach((input) => {
       if (input) {
         input.addEventListener('blur', () => {
@@ -210,7 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        // Clear error as user types
         input.addEventListener('input', () => {
           if (input.classList.contains('is-invalid')) {
             const validator = validators[input.id];
@@ -223,14 +263,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Form submit listener
+    // Form submit
     appointmentForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
       let hasErrors = false;
       let firstInvalidInput = null;
 
-      // Validate required fields
       [nameInput, emailInput, phoneInput].forEach((input) => {
         if (input) {
           const validator = validators[input.id];
@@ -250,22 +289,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Collect validated details
-      const clientName = nameInput.value.trim();
-      const clientEmail = emailInput.value.trim();
-      const clientPhone = phoneInput.value.trim();
-      const treatmentVal = treatmentInput ? treatmentInput.value : 'General Consultation';
-      const dateVal = dateInput && dateInput.value ? dateInput.value : 'Flexible / Next Available';
-      const slotVal = slotInput && slotInput.value ? slotInput.value : 'Anytime';
-      const messageVal = messageInput && messageInput.value.trim() ? messageInput.value.trim() : 'No extra notes provided.';
+      // Collect data safely
+      const clientName = nameInput ? nameInput.value.trim() : '';
+      const clientEmail = emailInput ? emailInput.value.trim() : '';
+      const clientPhone = phoneInput ? phoneInput.value.trim() : '';
+      const messageVal = messageInput && messageInput.value.trim() ? messageInput.value.trim() : 'No additional message provided.';
 
-      // Construct transparent WhatsApp message for clinic numbers (+91 9862890897)
-      const whatsappText = `Hello Sakthi Dental Clinic,%0A%0AI would like to request an appointment:%0A• Name: ${encodeURIComponent(clientName)}%0A• Phone: ${encodeURIComponent(clientPhone)}%0A• Email: ${encodeURIComponent(clientEmail)}%0A• Treatment: ${encodeURIComponent(treatmentVal)}%0A• Preferred Date: ${encodeURIComponent(dateVal)}%0A• Preferred Time: ${encodeURIComponent(slotVal)}%0A• Message: ${encodeURIComponent(messageVal)}%0A%0APlease confirm availability. Thank you!`;
-
+      // Pre-fill WhatsApp message
+      const whatsappText = `Hello Sakthi Dental Clinic,%0A%0AI would like to connect regarding an appointment/inquiry:%0A• Name: ${encodeURIComponent(clientName)}%0A• Phone: ${encodeURIComponent(clientPhone)}%0A• Email: ${encodeURIComponent(clientEmail)}%0A• Message: ${encodeURIComponent(messageVal)}%0A%0APlease let me know your availability. Thank you!`;
       const whatsappUrl = `https://wa.me/919862890897?text=${whatsappText}`;
-      const mailtoUrl = `mailto:info@sakthidentalclinic.in?subject=Appointment%20Request%20-%20${encodeURIComponent(clientName)}&body=${encodeURIComponent(`Dear Sakthi Dental Clinic,\n\nName: ${clientName}\nPhone: ${clientPhone}\nEmail: ${clientEmail}\nTreatment: ${treatmentVal}\nDate: ${dateVal}\nTime: ${slotVal}\n\nNote:\n${messageVal}`)}`;
+      const mailtoUrl = `mailto:info@sakthidentalclinic.in?subject=Website%20Inquiry%20-%20${encodeURIComponent(clientName)}&body=${encodeURIComponent(`Dear Sakthi Dental Clinic,\n\nName: ${clientName}\nPhone: ${clientPhone}\nEmail: ${clientEmail}\n\nMessage:\n${messageVal}`)}`;
 
-      // Display transparent feedback card
+      // Display transparent feedback without claiming a fake backend saved it
       if (feedbackModal) {
         feedbackModal.innerHTML = `
           <div class="feedback-header">
@@ -273,24 +308,26 @@ document.addEventListener('DOMContentLoaded', () => {
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
               <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
-            <h4>Appointment Request Prepared Successfully</h4>
+            <h4>Thank You, ${escapeHtml(clientName)}!</h4>
           </div>
           <div class="feedback-body">
             <p>
-              Thank you, <strong>${escapeHtml(clientName)}</strong>. Your appointment request for <strong>${escapeHtml(treatmentVal)}</strong> has been verified.
+              Your contact details have been verified. <em>Note: This website is a frontend client demonstration and does not automatically save bookings to a live database.</em>
             </p>
             <p style="font-size: 0.875rem; color: #334155; margin-bottom: 1.25rem; background: #FFFFFF; padding: 0.85rem; border-radius: 8px; border: 1px solid #A7F3D0;">
-              <strong>Summary:</strong><br>
-              Phone: ${escapeHtml(clientPhone)} | Preferred Date: ${escapeHtml(dateVal)} (${escapeHtml(slotVal)})
+              <strong>Submitted Details:</strong><br>
+              Name: ${escapeHtml(clientName)}<br>
+              Phone: ${escapeHtml(clientPhone)}<br>
+              Email: ${escapeHtml(clientEmail)}
             </p>
-            <p style="font-size: 0.85rem; color: #475569; margin-bottom: 1.25rem;">
-              To ensure immediate scheduling without delay, connect directly with our clinic desk in Hosur via WhatsApp or direct phone call below. Our team is available 9 AM to 7 PM every day.
+            <p style="font-size: 0.875rem; color: #475569; margin-bottom: 1.25rem;">
+              To immediately connect with Dr. Anupriya and our clinic reception in Hosur, please choose a direct option below:
             </p>
           </div>
           <div class="feedback-actions">
             <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background: #25D366; border-color: #25D366;">
               <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.449.741.963 1.2 0.662.591 1.22.774 1.393.861.173.086.275.072.376-.044.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087.159.058 1.011.477 1.184.564.173.087.289.13.332.202.043.072.043.419-.101.824z"/></svg>
-              Send via WhatsApp to Clinic
+              Send via WhatsApp
             </a>
             <a href="tel:+919862890897" class="btn btn-secondary">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -298,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </a>
             <a href="${mailtoUrl}" class="btn btn-outline">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              Email Clinic Desk
+              Send Email
             </a>
           </div>
         `;
@@ -306,19 +343,18 @@ document.addEventListener('DOMContentLoaded', () => {
         feedbackModal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
 
-      // If user is hosting with Netlify Forms, let Netlify handle native POST in background
+      // If hosted on Netlify, forward form submission
       if (appointmentForm.getAttribute('data-netlify') === 'true') {
         const formData = new FormData(appointmentForm);
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams(formData).toString()
-        }).catch((err) => console.log('Netlify form submission caught:', err));
+        }).catch((err) => console.log('Netlify submission handled:', err));
       }
     });
   }
 
-  // Helper to prevent HTML injection in feedback summary
   function escapeHtml(str) {
     if (!str) return '';
     return str
